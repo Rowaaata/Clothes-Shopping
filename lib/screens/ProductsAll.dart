@@ -15,24 +15,24 @@ class Product {
 
 List<Product> AllProduct = [
   Product(
-    image: "Images/image1.png",
-    title: "Long Sleeve Shirts",
-    price: 250,
+    image: "Images/jacket.jpg",
+    title: "Jacket",
+    price: 350,
     bgColor: const Color(0xFFFEFBF9),
   ),
   Product(
-    image: "Images/image2.png",
-    title: "Casual nolin",
-    price: 150,
+    image: "Images/Shemes.jpg",
+    title: "shirt",
+    price: 180,
   ),
   Product(
-    image: "Images/image3.png",
-    title: "shirts",
+    image: "Images/shirtss.jpeg",
+    title: "Casual nolin",
     price: 200,
     bgColor: const Color(0xFFF8FEFB),
   ),
   Product(
-    image: "Images/image4.png",
+    image: "Images/Shirtsss.jpg",
     title: "Cotton shirt",
     price: 450,
     bgColor: const Color(0xFFEEEEED),
@@ -43,22 +43,16 @@ List<Product> AllProduct = [
 
 List<Product> popularProducts = [
   Product(
-    image: "Images/image2.png",
+    image: "Images/image1.png",
     title: "Casual nolin",
     price: 150,
   ),
-  // Product(
-  //   image: "Images/image1.png",
-  //   title: "Long Sleeve Shirts",
-  //   price: 250,
-  //   bgColor: const Color(0xFFFEFBF9),
-  // ),
   Product(
-    image: "Images/image3.png",
-    title: "shirts",
-    price: 200,
-    bgColor: const Color(0xFFF8FEFB),
-  ),
+     image: "Images/image2.png",
+     title: "Long Sleeve Shirts",
+     price: 250,
+    bgColor: const Color(0xFFFEFBF9),
+   ),
   Product(
     image: "Images/image3.png",
     title: "shirts",
@@ -67,8 +61,9 @@ List<Product> popularProducts = [
   ),
   Product(
     image: "Images/image4.png",
-    title: "Cotton shirt",
-    price: 450,
-    bgColor: const Color(0xFFEEEEED),
+    title: "shirts",
+    price: 190,
+    bgColor: const Color(0xFFF8FEFB),
   ),
+
 ];

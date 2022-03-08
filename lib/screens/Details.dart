@@ -103,11 +103,13 @@ class _DetailsState extends State<Details> {
                       Colors_dot(
                           color: const Color(0xFF0000FF),
                           isActive: false,
-                          press: () {}),
+                          press: () {
+                            active = !active;
+                          }),
                       Colors_dot(
                           color: const Color(0xFF000000),
                           isActive: false,
-                          press: () {}),
+                          press: () { active = !active;}),
                     ],
                   ),
                   const SizedBox(

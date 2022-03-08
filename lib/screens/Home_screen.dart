@@ -13,6 +13,11 @@ import 'Details.dart';
 import 'Popular.dart';
 import 'ProductsAll.dart';
 import 'Products.dart';
+import 'SignIn.dart';
+import 'SignUp.dart';
+
+
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,6 +27,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var page = 0;
   final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -44,7 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Text(
               "Egypt",
-              style: Theme.of(context).textTheme.subtitle2,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .subtitle2,
             )
           ],
         ),
@@ -60,7 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
             Text(
               "Explore",
-              style: Theme.of(context)
+              style: Theme
+                  .of(context)
                   .textTheme
                   .headline4!
                   .copyWith(fontWeight: FontWeight.w500, color: Colors.black),
@@ -79,14 +89,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: List.generate(
                   AllCategories.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.only(right: defaultpadding),
-                    child: Types(
-                      Icon: AllCategories[index].Icon,
-                      title: AllCategories[index].title,
-                      press: () {},
-                    ),
-                  ),
+                      (index) =>
+                      Padding(
+                        padding: const EdgeInsets.only(right: defaultpadding),
+                        child: Types(
+                          Icon: AllCategories[index].Icon,
+                          title: AllCategories[index].title,
+                          press: () {},
+                        ),
+                      ),
                 ),
               ),
             ),
@@ -100,23 +111,24 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: List.generate(
                   popularProducts.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.only(left: defaultpadding),
-                    child: Products(
-                      image: popularProducts[index].image,
-                      title: popularProducts[index].title,
-                      Price: popularProducts[index].price,
-                      bgColor: popularProducts[index].bgColor,
-                      press: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  Details(product: popularProducts[index]),
-                            ));
-                      },
-                    ),
-                  ),
+                      (index) =>
+                      Padding(
+                        padding: const EdgeInsets.only(left: defaultpadding),
+                        child: Products(
+                          image: popularProducts[index].image,
+                          title: popularProducts[index].title,
+                          Price: popularProducts[index].price,
+                          bgColor: popularProducts[index].bgColor,
+                          press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Details(product: popularProducts[index]),
+                                ));
+                          },
+                        ),
+                      ),
                 ),
               ),
             ),
@@ -126,23 +138,24 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Row(
                 children: List.generate(
                   AllProduct.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.only(left: defaultpadding),
-                    child: Products(
-                      image: AllProduct[index].image,
-                      title: AllProduct[index].title,
-                      Price: AllProduct[index].price,
-                      bgColor: AllProduct[index].bgColor,
-                      press: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  Details(product: AllProduct[index]),
-                            ));
-                      },
-                    ),
-                  ),
+                      (index) =>
+                      Padding(
+                        padding: const EdgeInsets.only(left: defaultpadding),
+                        child: Products(
+                          image: AllProduct[index].image,
+                          title: AllProduct[index].title,
+                          Price: AllProduct[index].price,
+                          bgColor: AllProduct[index].bgColor,
+                          press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Details(product: AllProduct[index]),
+                                ));
+                          },
+                        ),
+                      ),
                 ),
               ),
             ),
@@ -155,17 +168,75 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    height: 100, width: 100,
-                    color: Colors.yellow,
-                  )
+                  CircleAvatar(
+                    maxRadius: 40.0,
+                    backgroundImage: NetworkImage(
+                      'https://previews.123rf.com/images/metelsky/metelsky1904/metelsky190400021/121859823-male-avatar-icon-or-portrait-handsome-young-man-face-with-beard-vector-illustration-.jpg',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Name",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "Name@gmail.com",
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
                 ],
               ),
-            )
+              width: double.infinity,
+              height: 250,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'https://blog.sebastiano.dev/content/images/2019/07/1_l3wujEgEKOecwVzf_dqVrQ.jpeg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            ListTile(
+              onTap: () {
+                setState(() {
+                  page = 1;
+                });
+                Navigator.push(context,MaterialPageRoute(builder: (context)=> LoginScreen()));
+              },
+              title: Text("SignIn"),
+            ),
+            ListTile(
+              onTap: () {
+                setState(() {
+                  page = 2;
+                });
+                Navigator.push(context,MaterialPageRoute(builder: (context)=> SignUpScreen()));
+              },
+              title: Text("SignUp"),
+            ),
           ],
         ),
       ),
     );
+  }
+
+
+  Widget viewPage() {
+    switch (page) {
+      case 1:
+        return LoginScreen();
+      case 2:
+        return SignUpScreen();
+    }
+    return Container();
   }
 }
